@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Information Diffusion Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            IDA<span>.</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#analysis">Analysis</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                MACHINE LEARNING • SOCIAL MEDIA
+            </div>
+
+            <h1>
+                Information<br>
+                <span>Diffusion Analysis</span>
+            </h1>
+
+            <p>
+                Analyze social media interactions and predict
+                how widely information may spread through a network.
+            </p>
+
+            <a href="#analysis" class="primary-btn">
+                Start Analysis →
+            </a>
+
+        </div>
+
+        <div class="network-card">
+
+            <div class="network-title">
+                Diffusion Network
+            </div>
+
+            <div class="network">
+                <div class="node node-1">A</div>
+                <div class="node node-2">B</div>
+                <div class="node node-3">C</div>
+                <div class="node node-4">D</div>
+                <div class="node node-5">E</div>
+
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+
+            <div class="network-status">
+                ● Network analysis active
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Analysis Section -->
+    <section class="analysis-section" id="analysis">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                ANALYSIS
+            </div>
+
+            <h2>
+                Enter Interaction Details
+            </h2>
+
+            <p>
+                Provide social media interaction data to generate
+                a diffusion prediction.
+            </p>
+
+        </div>
+
+
+        <div class="analysis-card">
+
+            <form method="POST">
+
+                <div class="input-grid">
+
+                    <div class="input-box">
+
+                        <label>Total Interactions</label>
+
+                        <input
+                            type="number"
+                            name="total_interactions"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 15"
+                            required>
+
+                        <span>
+                            Total user interactions
+                        </span>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Retweets</label>
+
+                        <input
+                            type="number"
+                            name="retweets"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 7"
+                            required>
+
+                        <span>
+                            Content reshares
+                        </span>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Mentions</label>
+
+                        <input
+                            type="number"
+                            name="mentions"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 7"
+                            required>
+
+                        <span>
+                            User mentions
+                        </span>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Replies</label>
+
+                        <input
+                            type="number"
+                            name="replies"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 1"
+                            required>
+
+                        <span>
+                            Direct responses
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="analyze-btn">
+                    Analyze Diffusion
+                    <span>→</span>
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Result -->
+        {% if prediction %}
+
+        <div class="result-card">
+
+            <div class="result-label">
+                PREDICTION RESULT
+            </div>
+
+            <h3>
+                {{ prediction }} Diffusion
+            </h3>
+
+            <p>
+                Based on the interaction pattern provided,
+                the predicted information diffusion level is
+                <strong>{{ prediction }}</strong>.
+            </p>
+
+            <div class="result-bar">
+                <div class="result-fill"></div>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                PROCESS
+            </div>
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                The system uses machine learning to analyze
+                interaction patterns and classify diffusion.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    User Data
+                </h3>
+
+                <p>
+                    Social media interaction values are provided
+                    as input.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Feature Analysis
+                </h3>
+
+                <p>
+                    Interaction features are processed
+                    for prediction.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    ML Prediction
+                </h3>
+
+                <p>
+                    A Random Forest classifier analyzes the
+                    interaction pattern.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Diffusion Level
+                </h3>
+
+                <p>
+                    The system displays Low, Medium,
+                    or High diffusion.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about-section" id="about">
+
+        <div class="about-card">
+
+            <div>
+                <div class="small-title">
+                    ABOUT THE PROJECT
+                </div>
+
+                <h2>
+                    Understanding Information Spread
+                </h2>
+            </div>
+
+            <div class="about-text">
+
+                <p>
+                    Information Diffusion Analysis uses machine
+                    learning to study social media interaction
+                    patterns and classify the potential level
+                    of information spread.
+                </p>
+
+                <div class="model-info">
+
+                    <div>
+                        <strong>MODEL</strong>
+                        <span>Random Forest</span>
+                    </div>
+
+                    <div>
+                        <strong>INPUT</strong>
+                        <span>4 Interaction Features</span>
+                    </div>
+
+                    <div>
+                        <strong>OUTPUT</strong>
+                        <span>Diffusion Level</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            IDA.
+        </div>
+
+        <p>
+            Information Diffusion Analysis • Machine Learning Project
+        </p>
+
+    </footer>
+
+</body>
+</html>
